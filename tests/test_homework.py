@@ -58,7 +58,7 @@ def _load_model():
     """Generic test to load a model"""
     assert os.path.exists(MODEL_FILENAME)
     with gzip.open(MODEL_FILENAME, "rb") as file:
-        model = pickle.load(file)
+        model = pickle.load(file, fix_imports=True)
     assert model is not None
     return model
 
